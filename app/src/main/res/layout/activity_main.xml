@@ -14,15 +14,16 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="textPersonName|number"
+        android:text="1"
         android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/editText"/>
+        android:id="@+id/editText"
+        android:gravity="center_vertical|center"/>
 
     <Button
-        android:text="Button"
+        android:text="Calculate Area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -30,10 +31,12 @@
         android:id="@+id/button"/>
 
     <TextView
-        android:text="TextView"
+        android:text="No Result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView"/>
+        android:id="@+id/textView"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"/>
 </RelativeLayout>
