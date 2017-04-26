@@ -14,5 +14,4 @@ import dagger.Component;
 @Component(modules = {MotorModule.class})
 public interface MotorComponent {
     void inject(MainActivity activty);
-    void inject(Motor motor);
 }

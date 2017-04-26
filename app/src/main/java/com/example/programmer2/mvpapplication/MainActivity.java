@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "X518", 50, "Frasoo"
         )).build();
         motorComponent.inject(this);
-        motorComponent.inject(motor);
 
         if (motor != null) {
             Log.e(TAG, "car is created");
@@ -69,6 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void setTextView(double area) {
-        textView.setText(String.format("Circle Area is = %%.2f%s", area));
+        textView.setText(String.format("Circle Area is = %.2f", area));
     }
 }

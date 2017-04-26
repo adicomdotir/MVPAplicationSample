@@ -7,16 +7,15 @@ import javax.inject.Inject;
  */
 
 public class Motor {
-    @Inject
-    public Computer computer;
 
-    @Inject
-    Radiator radiator;
+    private Computer computer;
+    private Radiator radiator;
+    private String name;
 
-    String name;
-
-    public Motor(String name) {
+    public Motor(String name, Computer computer, Radiator radiator) {
         this.name = name;
+        this.computer = computer;
+        this.radiator = radiator;
     }
 
     public boolean startEngin() {

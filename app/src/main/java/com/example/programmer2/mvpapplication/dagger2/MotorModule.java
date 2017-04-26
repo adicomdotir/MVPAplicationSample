@@ -24,8 +24,8 @@ public class MotorModule {
 
     @Provides
     @Singleton
-    Motor provideMotor() {
-        return new Motor(motoName);
+    Motor provideMotor(Computer computer, Radiator radiator) {
+        return new Motor(motoName, computer, radiator);
     }
 
     @Provides
