@@ -7,24 +7,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.programmer2.mvpapplication.dagger2.DaggerMotorComponent;
+import com.example.programmer2.mvpapplication.dagger2.DaggerVehicleComponent;
+import com.example.programmer2.mvpapplication.dagger2.Model.Vehicle;
+import com.example.programmer2.mvpapplication.dagger2.Module.VehicleModule;
 import com.example.programmer2.mvpapplication.dagger2.Motor;
 import com.example.programmer2.mvpapplication.dagger2.MotorComponent;
 import com.example.programmer2.mvpapplication.dagger2.MotorModule;
+import com.example.programmer2.mvpapplication.dagger2.VehicleComponent;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, MainPresenter.View {
 
     private static final String TAG = "TAG";
+    Vehicle vehicle;
+    @Inject
+    Motor motor;
     private MainPresenter mainPresenter;
     private EditText editText;
     private TextView textView;
-
-    @Inject
-    Motor motor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Log.e(TAG, "motor is not provided");
         }
+
+        VehicleComponent vehicleComponent = DaggerVehicleComponent.builder().vehicleModule(new VehicleModule()).build();
+        vehicle = vehicleComponent.provideVehicle();
+
+        vehicle.increaseSpeed(50);
+        Log.e(TAG, vehicle.getSpeed() + "");
     }
 
     @Override
